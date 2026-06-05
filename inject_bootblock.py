@@ -9,14 +9,14 @@ def inject_bootblock(bin_input, adf_output):
             return
             
         with open(bin_input, 'rb') as f:
-            datos_bootblock = f.read()
+            bootblock_data = f.read()
             
-        print(f"-> Loading bootblock: {bin_input} ({len(datos_bootblock)} bytes)")
+        print(f"-> Loading bootblock: {bin_input} ({len(bootblock_data)} bytes)")
 
         # Create buffer
         bootblock = bytearray(1024)
-        copy_size = min(len(datos_bootblock), 1024)
-        bootblock[0:copy_size] = datos_bootblock[0:copy_size]
+        copy_size = min(len(bootblock_data), 1024)
+        bootblock[0:copy_size] = bootblock_data[0:copy_size]
         
         # Checksum
         bootblock[4:8] = b'\x00\x00\x00\x00'
