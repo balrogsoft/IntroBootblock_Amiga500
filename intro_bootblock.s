@@ -1,4 +1,6 @@
-	
+; Bootblock intro skeleton for Amiga 500 with KS 1.3
+; by Balrog Soft / Amiga Skool
+
 	dc.b    "DOS",0
     dc.l    0              	; Checksum (Externally Calculated)
     bra.s   boot_entry
